@@ -15,9 +15,15 @@ open any teminal(i.e cmd or powershell(window) Terminal(Linux)) and type:
 Add Secret Key of your Django Project to Settings.py
 
 # Step 5
-Add Database Credentails in settings.py file under the DATABASE section
+Add Database Credentails in settings.py file under the DATABASE section. If you are using sqlite3 then no need for this just change <br/>
+'ENGINE': 'django.db.backends.sqlite3',
 
-#
+# Step 6
+python manage.py runserver
+
+# step 7
+Seach for http://127.0.0.1:8000 or http://localhost:8000 in your favorite browser
+
 
 Enjoy!!!
 
