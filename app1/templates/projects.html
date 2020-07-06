@@ -1,0 +1,137 @@
+{% extends 'layout.html'%}
+
+{%block title%}<title>Projects - ZAKRIA's Official</title>{%endblock%}
+
+{%block meta%}
+	<meta charset="UTF-8">
+	<meta name="description" content="I work on multiple projects. Passionate and hardworking with penchant for meeting deadlines. Interested in role with company promoting best practices and offering diverse customer projects.">
+	<meta name="keywords" content="Project, Projects, Zakria, zakria khan, zakria-khan, Zakria Blog, Zack's Blog, Zakria's Blog, Zakria Official, Developer, Programmer, Software Engineer">
+	<meta name="author" content="Zakria Khan">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%endblock%}
+
+{% load static %}
+{%block css%}
+    <style>
+        .projects-img img{
+        height: 180px;
+        min-width: 100%;
+    }
+    </style>
+{%endblock%}
+{%block content%}
+<div class="main-wrapper">
+    <div class="py-5">
+        <div class="container">
+            <h2 class="title mb-3 text-primary">Projects</h2>
+        
+        <div class="row py-3 border projects-img" style="background-color: #eef0f1f5;">
+            <div class="col-md-4 col-sm-6 mb-3">
+                <div class="card p-1">
+                    <div class="card-head p-1 img">
+                        <a href="{%static 'images/projects/isdswat.png' %}">
+                        <img src="{%static 'images/projects/isdswat.png' %}" class="img-fluid" alt="">
+                    </a>
+                    </div>
+                    <div class="card-body border bg-dark text-white text-center">
+                        <p style="font-size: 13px; font-weight: 700;">Institute of Skills Development</p>
+                        <a href="https://isdswat.org" class='btn btn-primary btn-block' target="_blank" >Visit</a>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-3">
+            <div class="card ">
+                <div class="card-head p-1 img">
+                    <a href="{%static 'images/projects/apnaswat.png' %}">
+                    <img src="{%static 'images/projects/apnaswat.png' %}" class="img-fluid" alt="">
+                </a>
+                </div>
+                <div class="card-body border bg-dark text-white text-center">
+                    <p style="font-size: 14px; font-weight: 700;">Apna Swat</p>
+                    <a href="https://apnaswat.pk" class='btn btn-primary btn-block' target="_blank">Visit</a>
+                </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-3" >
+        <div class="card  p-1">
+            <div class="card-head p-1 img">
+                <a href="{%static 'images/projects/swathunza.png' %}">
+                <img src="{%static 'images/projects/swathunza.png' %}" class="img-fluid" alt="">
+            </a>
+            </div>
+            <div class="card-body border bg-dark text-white text-center">
+                <p style="font-size: 14px; font-weight: 700;">Swat Hunza Tourist</p>
+                <a href="http://swathunzatourist.com" class='btn btn-primary btn-block' target="blank">Visit</a>
+            </div>
+    </div>
+</div>
+<div class="col-md-4 col-sm-6 mb-3">
+    <div class="card  p-1">
+        <div class="card-head p-1 img">
+            <a href="{%static 'images/projects/swattoday.png' %}">
+            <img src="{%static 'images/projects/swattoday.png' %}" class="img-fluid" alt="">
+        </a>
+        </div>
+        <div class="card-body border bg-dark text-white text-center">
+            <p style="font-size: 14px; font-weight: 700;">Swat Today</p>
+            <a href="https://swattoday.com" class='btn btn-primary btn-block' target="blank">Visit</a>
+        </div>
+</div>
+</div>
+<div class="col-md-4 col-sm-6 mb-3 ">
+    <div class="card  p-1">
+        <div class="card-head p-1 img">
+            <a href="{%static 'images/projects/thetent.png' %}">
+            <img src="{%static 'images/projects/thetent.png' %}" class="img-fluid" alt="">
+            </a>
+        </div>
+        <div class="card-body border bg-dark text-white text-center">
+            <p style="font-size: 14px; font-weight: 700;">The Tent School</p>
+            <a href="#" class='btn btn-primary btn-block disabled' target="blank">Visit</a>
+        </div>
+</div>
+</div>
+<div class="col-md-4 col-sm-6 mb-3">
+    <div class="card  p-1">
+        <div class="card-head p-1 img">
+            <a href="{%static 'images/projects/teachcoe.png' %}">
+            <img src="{%static 'images/projects/teachcoe.png' %}" class="img-fluid" alt="">
+        </a>
+        </div>
+        <div class="card-body border bg-dark text-white text-center">
+            <p style="font-size: 14px; font-weight: 700;">Teach COE</p>
+            <a href="https://teachcoe.com" class='btn btn-primary btn-block' target="blank">Visit</a>
+        </div>
+</div>
+</div>
+<div class="col-md-4 col-sm-6 mb-3 ">
+    <div class="card  p-1">
+        <div class="card-head p-1 img">
+            <a href="{%static 'images/projects/easingminds.png' %}">
+            <img src="{%static 'images/projects/easingminds.png' %}" class="img-fluid" alt="">
+        </a>
+        </div>
+        <div class="card-body border bg-dark text-white text-center">
+            <p style="font-size: 14px; font-weight: 700;">Easing Minds</p>
+            <a href="https://easingminds.com" class='btn btn-primary btn-block' target="blank">Visit</a>
+        </div>
+</div>
+</div>
+
+        
+        </div>
+    </div>
+</div>
+    
+	    
+{%endblock%}
+{%block js%}
+        <script>
+            $('.img').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image'
+                // other options
+            });
+           
+        </script>
+    {%endblock%}

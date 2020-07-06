@@ -1,0 +1,75 @@
+{% extends 'layout.html'%}
+
+{%block title%}<title>Search - ZAKRIA's Official</title>{%endblock%}
+
+{%block meta%}
+	<meta charset="UTF-8">
+	<meta name="description" content="Self-motivated Web Developer with high level of experience working on multiple projects. Passionate and hardworking with penchant for meeting deadlines. Interested in role with company promoting best practices and offering diverse customer projects.">
+	<meta name="keywords" content="Search, Search Keyword, Zakria, zakria khan, zakria-khan, Zakria Blog, Zack's Blog, Zakria's Blog, Zakria Official, Developer, Programmer, Software Engineer">
+	<meta name="author" content="Zakria Khan">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%endblock%}
+
+{% load static %}
+
+{%block content%}
+    
+    <div class="main-wrapper">
+	    
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+                
+                <div class="p-1 mb-2 text-left" style="font-size: 25px; font-weight: 300;">
+                    <p>Search Result for <i>"{{query}}"</i> </p>
+                </div>
+                {%if blog%}
+                
+                {%for i in blog%}
+                
+			    <div class="item mb-5">
+				    <div class="media ">
+						<div class="img">
+						<a href="/media/{{i.image}}">
+						<img class="mr-3 img-fluid post-thumb d-none d-md-flex pt-1" src="/media/{{i.image}}" alt="image">
+					</a>
+				</div>
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="blog/{{i.blog_id}}">{{ i.blog_title }}</a></h3>
+						    <div class="meta mb-1"><span class="date"><i>Published on:</i> {{i.pub_date}}</span><span class="time">{{i.time_req}} min read</span></div>
+						    <div class="intro">{{i.blog_desc|slice:"0:150"}}...</div>
+						    <a class="more-link" href="blog/{{i.blog_id}}">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+				{%endfor%}
+                {%else%}
+                <div class="p-5 text-left" style="background-color: #f0f0f0;">
+                    <span style=" font-size: 40px; font-weight: 300;">
+                <h6><i>No Search Result Found!!!</i> </h6>
+            </span>
+                <p>Suggestions:</p>
+                <ul>
+                    <li>Make sure that all words are spelled correctly.</li>
+                    <li>Try different keywords.</li>
+                    <li>Try more general keywords.</li>
+                    <li>Try fewer keywords.</li>
+                </ul>
+            </div>
+				{%endif%}
+			    
+			    </div>
+				
+			<!-- </div> -->
+	    </section>
+{%endblock%}
+{%block js%}
+        <script>
+            
+            $('.img').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image'
+                // other options
+            });
+           
+        </script>
+        {%endblock%}

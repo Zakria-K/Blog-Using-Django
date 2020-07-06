@@ -1,0 +1,57 @@
+{% extends 'layout.html'%}
+
+{%block title%}<title>Gallery - ZAKRIA's Official</title>{%endblock%}
+
+{%block meta%}
+	<meta charset="UTF-8">
+	<meta name="description" content="I am a highly competent Web Application Developer with Three years’ experience developing a wide range of website for clients. I understand the Software Engineering lifecycle in depth and am very capable at all aspects of development from project planning to requirements gathering through to writing and testing code, creating documentation and support.">
+	<meta name="keywords" content="Gallery, Photos, Zakria, zakria khan, zakria-khan, Zakria Blog, Zack's Blog, Zakria's Blog, Zakria Official, Developer, Programmer, Software Engineer">
+	<meta name="author" content="Zakria Khan">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%endblock%}
+
+{% load static %}
+{%block css%}
+    <style>
+        .img img{
+            transition: .4s;
+        }
+        .img img:hover{
+            transform: scale(1.1);
+            cursor: zoom-in;
+        }
+    </style>
+{%endblock%}
+{%block content%}
+    
+    <div class="main-wrapper">
+	    	    
+	    <article class="about-section py-5">
+		    <div class="container">
+			    <h2 class="title mb-3 text-primary">Gallery</h2>
+			    <div class="row">
+                    {%if gallery%}
+                        {%for img in gallery%}
+                    <div class="col-md-4 col-sm-6 col-xs-1 img mb-2 mt-2">
+                        <a href="/media/{{img.image}}" title="Uploaded on: {{img.date}}">
+                            <img src="/media/{{img.image}}" alt="Image" class="img-fluid rounded shadow"> 
+                        </a>
+                    </div>
+                    {%endfor%}
+                    {%endif%}
+                </div>
+			    
+			</div></article>
+	    
+        {%endblock%}
+        
+        {%block js%}
+        <script>
+            $('.img').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image'
+                // other options
+            });
+           
+        </script>
+        {%endblock%}

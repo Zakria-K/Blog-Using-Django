@@ -1,0 +1,205 @@
+{% extends 'layout.html'%}
+
+{%block title%}<title>Home - ZAKRIA's Official</title>{%endblock%}
+
+{%block meta%}
+	<meta charset="UTF-8">
+	<meta name="description" content="Self-motivated Web Developer with high level of experience working on multiple projects. Passionate and hardworking with penchant for meeting deadlines. Interested in role with company promoting best practices and offering diverse customer projects.">
+	<meta name="keywords" content="Zakria, zakria khan, zakria-khan, Zakria Blog, Zack's Blog, Zakria's Blog, Zakria Official, Developer, Programmer, Software Engineer">
+	<meta name="author" content="Zakria Khan">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%endblock%}
+
+{% load static %}
+{% load widget_tweaks %}
+{%block css%}
+<style>
+	.gallery-img img{
+		height: 120px;
+	}
+	.img-gallery{
+		overflow: hidden;
+	}
+	.gallery-img img{
+            transition: .4s ease;
+        }
+    .gallery-img img:hover{
+            transform: scale(1.1);
+			overflow: hidden;
+			cursor: zoom-in;
+        }
+	.main-content {
+		position: relative;
+	}
+	.main-content .owl-theme .custom-nav {
+            position: absolute;
+            top: -10%;
+            left: 0;
+            right: 0;
+	}
+	.main-content .owl-theme .owl-prev,.main-content .owl-theme .owl-next {
+                position: absolute;
+                height: 114px;
+                color: inherit;
+                background: none;
+                border: none;
+                z-index: 100;
+	}
+    .main-content .owl-theme .owl-prev    i {
+                    font-size: 2.5rem;
+                    /* color: #cecece; */
+                }
+
+	.main-content .owl-theme .owl-prev {
+				left: 0;
+				color: #ccccccca;
+            }
+
+	.main-content .owl-theme .owl-next {
+				right: 0;
+			color: #ccccccca;
+			}
+			
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: none;
+    color: #FFF;
+    text-decoration: none;
+}
+</style>
+{%endblock%}
+
+{%block content%}
+
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <div class="intro"><h5>Welcome to my blog. Subscribe and get my latest blog post in your inbox.</h5></div>
+					<form class="signup-form form-inline justify-content-center pt-3" method="post" action="{% url 'home' %}">
+					{%csrf_token%}
+                    <div class="form-group">
+					<label class="sr-only">Your email</label>
+						<input type="email" name="email" placeholder="Enter Your Email" class="form-control" id="">
+					</div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+				</form>
+				<div id="message">
+				{% if messages %}
+					{% for message in messages %}
+						<div {% if message.tags %} class="alert alert-{{ message.tags }} mt-2"{% endif %}>{{ message }}</div>
+					{% endfor %}
+				
+				{% endif %}
+			</div>
+		    </div><!--//container-->
+		</section>
+		<section class="bio mt-3">
+			<div class="container">
+				<p class="mb-3 text-primary" style="font-size: 22px; ">Bio</p>
+				<div class="card p-3 shadow-sm" style="background-color: #fbfbfb;">
+					<p>I am a highly competent Web Application Developer with Three years’ experience developing a wide range of website for clients. I understand the Software Engineering lifecycle in depth and am very capable at all aspects of development from project planning to requirements gathering through to writing and testing code, creating documentation and support.</p>
+					<p style="font-size:17px; font-weight: 500;">Hobbies: <div class="text-primary" style="font-variant-caps:small-caps;">Coding | Traveling | Reading | Blogging | Music | Playing Chess | Internet Surfing | Learn New Things | Photography</div> </p>
+				</div>
+			</div>
+		</section>
+		<section class="gallery mt-4">
+			<div class="container">
+				<p class="mb-3 text-primary" style="font-size: 20px; ">Featured Gallery</p>
+
+				<div class="main-content">
+					<div class="owl-carousel owl-theme img gallery-img">
+						{% if gallery %}
+							{%for img in gallery%}
+								<div class="item">
+									<a href="/media/{{img.image}}" title="Uploaded on: {{img.date}}">
+									<img src="/media/{{img.image}}" alt="Picture 1">
+									</a>
+								</div>
+							{%endfor%}
+						
+						{% endif %}
+					</div>
+					<div class="owl-theme">
+						<div class="owl-controls">
+							<div class="custom-nav owl-nav"></div>
+						</div>
+					</div>
+				</div>
+				<div class="float-right mt-2">
+					<a href="gallery">Visit Gallery</a>
+				</div>
+			</div>
+		</section>
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+				{%if blog%}
+				<p class="mb-3 text-primary" style="font-size: 22px;">Featured Blogs</p>
+					{%for i in blog%}
+						<div class="item mb-5">
+							<div class="media ">
+								<div class="img">
+								<a href="/media/{{i.image}}">
+								<img class="mr-3 img-fluid post-thumb d-none d-md-flex pt-1" src="/media/{{i.image}}" alt="image">
+							</a>
+						</div>
+								<div class="media-body">
+									<h3 class="title mb-1"><a href="blog/{{i.blog_id}}">{{ i.blog_title }}</a></h3>
+									<div class="meta mb-1"><span class="date"><i>Published on:</i> {{i.pub_date}}</span><span class="time">{{i.time_req}} min read</span></div>
+									<div class="intro">{{i.blog_desc|slice:"0:150"}}...</div>
+									<a class="more-link" href="blog/{{i.blog_id}}">Read more &rarr;</a>
+								</div><!--//media-body-->
+							</div><!--//media-->
+						</div><!--//item-->
+					{% endfor %}
+				{% else %}
+				<h5>Blogs will be uploaded soon!!!</h5>
+				{% endif %}
+			    
+			    <nav class="blog-nav nav nav-justified my-5">
+				  <a class="nav-link-next nav-item nav-link rounded" href="{% url 'bloglist' %}">All Blogs<i class="arrow-next"></i></a>
+				</nav>
+				
+		    </div>
+	    </section>
+{% endblock %}
+
+{%block js%}
+        <script>
+            function mymsg(){
+                document.getElementById("message").style.display="none";
+            }
+            setTimeout("mymsg()",5000);
+		
+            $('.img').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image'
+                // other options
+            });
+			$('.main-content .owl-carousel').owlCarousel({
+			stagePadding: 50,
+			loop: true,
+			nav: false,
+			dots: false,
+			autoplay : true,
+			autoplayTimeout:2000,
+			smartSpeed:1000,
+			autoplayHoverPause : true,
+			margin: 10,
+			navText: [
+				'<i class="fa fa-angle-left" aria-hidden="true"></i>',
+				'<i class="fa fa-angle-right" aria-hidden="true"></i>'
+			],
+			navContainer: '.main-content .custom-nav',
+			responsive:{
+				0:{
+					items: 1
+				},
+				600:{
+					items: 2
+				},
+				1000:{
+					items: 3
+				}
+			}
+		});
+        </script>
+        {%endblock%}

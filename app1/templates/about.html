@@ -1,0 +1,41 @@
+{% extends 'layout.html'%}
+
+{%block title%}<title>About - ZAKRIA's Official</title>{%endblock%}
+{%block meta%}
+	<meta charset="UTF-8">
+	<meta name="description" content="Self-motivated Web Developer with high level of experience working on multiple projects. Passionate and hardworking with penchant for meeting deadlines. Interested in role with company promoting best practices and offering diverse customer projects.">
+	<meta name="keywords" content="About Us, About, About Zakria, Zakria, zakria khan, zakria-khan, Zakria Blog, Zack's Blog, Zakria's Blog, Zakria Official, Developer, Programmer, Software Engineer">
+	<meta name="author" content="Zakria Khan">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%endblock%}
+{% load static %}
+
+{%block content%}
+    
+    <div class="main-wrapper">
+	    	    
+	    <article class="about-section py-5">
+		    <div class="container">
+			    <h2 class="title mb-3 text-primary">About Me</h2>
+			    
+			    <p>Self-motivated Web Developer with high level of experience working on multiple projects. Passionate and hardworking with penchant for meeting deadlines. Interested in role with company promoting best practices and offering diverse customer projects. </p>
+			    <figure><img class="img-fluid" src="{% static 'images/about.jpg'%}" alt="image"></figure>
+			    <h5 class="mt-5 text-primary">About The Blog</h5>
+			    <p>It’s important to follow trends in your field to ensure you’re staying current on standards and protocols and perhaps more so in the field of coding. Programmers of all specialties can benefit from following industry-leading blogs to stay aware of the latest technologies.</p>
+			    <h5 class="mt-5 text-primary">My Skills</h5>
+			    
+					<h5>
+						<span class="badge badge-pill badge-info">Django</span> <span class="badge badge-pill badge-warning">Php</span>
+						<span class="badge badge-pill badge-danger">Python</span> <span class="badge badge-pill badge-success">C++</span>
+						<span class="badge badge-pill badge-info">SQL</span> <span class="badge badge-pill badge-warning">Wordpress</span>
+						<span class="badge badge-pill badge-danger">MongoDB</span> <span class="badge badge-pill badge-success">NoSQL</span>
+						<span class="badge badge-pill badge-info">Linux</span> <span class="badge badge-pill badge-warning">Version Control</span>
+						<span class="badge badge-pill badge-danger">Bootstrap</span> <span class="badge badge-pill badge-success">Git</span>
+						<span class="badge badge-pill badge-info">CSS</span> <span class="badge badge-pill badge-warning">HTML5</span>
+						<span class="badge badge-pill badge-danger">JavaScript</span> <span class="badge badge-pill badge-success">JQuery</span>
+						<span class="badge badge-pill badge-info">Ajax</span> <span class="badge badge-pill badge-warning">Sass</span>
+						<span class="badge badge-pill badge-danger">SEO</span>
+					</h5>
+					</div></article>
+	    
+	    {%endblock%}

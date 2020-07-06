@@ -1,0 +1,91 @@
+{%extends 'layout.html' %}
+{% load embed_video_tags %}
+
+
+{%block title%}<title>Blog: {{blog.blog_title}} - ZAKRIA's Official</title>{%endblock%}
+
+{%block meta%}
+	<meta charset="UTF-8">
+	<meta name="description" content="Self-motivated Web Developer with high level of experience working on multiple projects. Passionate and hardworking with penchant for meeting deadlines. Interested in role with company promoting best practices and offering diverse customer projects.">
+	<meta name="keywords" content="Blog Post, Zakria, zakria khan, zakria-khan, Zakria Blog, Zack's Blog, Zakria's Blog, Zakria Official, Developer, Programmer, Software Engineer">
+	<meta name="author" content="Zakria Khan">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%endblock%}
+
+{% load static%}
+
+
+{%block content%}
+<div class="main-wrapper">
+
+    <article class="blog-post px-3 py-5 p-md-5">
+        <div class="container">
+            <header class="blog-post-header">
+                <h2 class="title mb-2">{{blog.blog_title}}</h2>
+                <div class="meta mb-3"><span class="date"><i>Published on:</i> {{blog.pub_date}}</span><span> <button type="button" disabled class="btn btn-sm btn-primary">
+                            Min Read <span class="badge badge-light">{{blog.time_req}}</span>
+                          </button>
+                        </span></div>
+            </header>
+
+            <div class="blog-post-body " >
+                <figure class="blog-banner col-9 mx-auto d-flex img">
+                    <a href="/media/{{blog.image}}"><img class="img-fluid rounded" src="/media/{{blog.image}}" alt="image"></a>
+                </figure>
+                <p>{{blog.blog_desc}} </p>
+               
+                {% if blog.code%}
+                <br>
+                    <h6>Code:</h6>
+                    <div class="card p-3" style="background-color: #fbfbfb;">
+                        <pre>{{blog.code}}</pre>
+                    </div>
+                    {%endif%}
+                
+
+                {% if blog.youtube_link %}
+                <br>
+                        <h6>Video</h6>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            {%video blog.youtube_link 'small'%}    
+                        </div>
+                    {%endif%}
+        </div>
+    </div>
+    <div class="container my-3">
+        <span class="float-left">
+         {%if prevpost %}
+         
+            <a href="{{ prevpost.blog_id }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp; &nbsp;  Previous ({{prevpost.blog_id}})</a>
+        {%else%}
+            <a href="{% url 'home'%}" class="btn btn-primary"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a>
+       
+        {%endif%}
+    </span>
+    
+    <span class="float-right">
+        {%if nextpost %}
+            <a href="{{ nextpost.blog_id }}" class="btn btn-primary "> NEXT ({{nextpost.blog_id}}) &nbsp; &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        {%else%}
+            <a href="{% url 'home'%}" class="btn btn-primary ">Home &nbsp;<i class="fa fa-home" aria-hidden="true"></i></a>
+            
+        {%endif%}
+    </span>
+    </div>
+</article>
+
+
+
+                
+    {%endblock%}
+
+    {%block js%}
+        <script>
+            $('.img').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image'
+                // other options
+            });
+           
+        </script>
+    {%endblock%}
