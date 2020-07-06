@@ -2,7 +2,7 @@
 Complete Blog Web Application Using Django and PostgreSQL For Developers
 
 # Step 1
-open any teminal(i.e cmd or powershell(window) Terminal(Linux)) and type:
+open any teminal(i.e cmd or powershell(window) Terminal(Linux)) and type:<br/>
   git clone https://github.com/Zakria-K/Blog-Using-Django.git
 
 # Step 2
