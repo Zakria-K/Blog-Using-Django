@@ -1,5 +1,5 @@
 # Blog-Using-Django
-Complete Blog Web Application Using Django and PostgreSQL
+Complete Blog Web Application Using Django and PostgreSQL For Developers
 
 # Step 1
 open any teminal(i.e cmd or powershell(window) Terminal(Linux)) and type:
